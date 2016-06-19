@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+          <style type="text/css">
+              
+              .setor{
+                  width:250px;
+              }
+
+          </style>
+    <f:view>
+        <h:head>
+            <f:facet name="first">
+                <title>Cadastro Chamado</title>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <center>
+                <h:form >
+                    <p:growl id="msgs" showDetail="true" />
+                    <p:panel id="basic" header="Abrir Chamado"  style="margin-bottom:20px">
+                        <h:panelGrid columns="2">
+                            <p:outputLabel for="setor" value="Setor Responsavel:" /> 
+                              <p:selectOneMenu id="setor" value="#{chamadoBean.chamado.setor}" converter="setorConverter" required="true" requiredMessage="Informe o Setor!!">
+                                <f:selectItem itemLabel="Selecione um setor" noSelectionOption="true" itemValue="" />
+                                <f:selectItems value="#{setorBean.listaSetores}" var ="setor" itemLabel="#{setor.nome}" itemValue="#{setor}" />
+                            </p:selectOneMenu>
+
+                           <p:outputLabel for="Status" value="Status:" />
+                           <h:outputText id="Status"  value="#{chamadoBean.chamado.status}" />                                
+                            
+                             <p:outputLabel for="nome" value="Nome: "/>
+                             <h:outputText id="nome"  value="#{chamadoBean.chamado.nome}" /> 
+                                 
+                             
+                             <p:outputLabel for="email" value="Email: "/>
+                             <h:outputText id="email"  value="#{chamadoBean.chamado.email}" />
+
+                            <p:outputLabel for="localChamado" value="Local: "/>
+                            <h:outputText id="localChamado"  value="#{chamadoBean.chamado.localChamado}" />
+
+                            <p:outputLabel for="mask" value="Data de Abertura:" />
+                           <h:outputText  id="mask" value="#{chamadoBean.chamado.dataAbertura}" />
+
+                            <p:outputLabel for="txtDesc" value="Descrição do Chamado: "/>
+                           <h:outputText id="txtDesc"  value="#{chamadoBean.chamado.descricao}" />
+                        </h:panelGrid>
+                    </p:panel>
+                    <p:commandButton ajax="false" value="Salvar" actionListener="#{chamadoBean.salvar()}"/>
+                    <p:button value="Voltar" outcome="listaChamados"/>
+                    <p:button value="Voltar ao menu principal" outcome="#{loginBean.verificaLogin()}"/>
+                </h:form>
+
+            </center>
+        </h:body>
+    </f:view>
+</html>

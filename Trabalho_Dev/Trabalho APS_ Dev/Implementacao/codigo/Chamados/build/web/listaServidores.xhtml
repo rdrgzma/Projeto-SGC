@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <f:facet name="first">
+                <title> Servidores </title>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <center>
+                <h:form>
+                  <p:growl id="msgs" showDetail="true" />
+                    <p:panel id="basic" header="Servidores"  style="margin-bottom:20px">
+                        <p:button value="Incluir servidor" outcome="cadastroServidor"/>
+                        <p:dataTable value="#{servidorBean.listaServidor}" var="lis" rows="10" paginator="true">
+                         <p:column headerText="ID" sortBy="#{lis.id}" filterBy="#{lis.id}" width="120">
+                            #{lis.id}
+                         </p:column>
+                            <p:column headerText="Nome" sortBy="#{lis.nome}" filterBy="#{lis.nome}">
+                        #{lis.nome}
+                         </p:column>
+                        <p:column headerText="Opções" width="100">
+                        
+                           <p:commandButton ajax="false" value="Alterar" title="Alterar" actionListener="#{servidorBean.carregar(lis.id)}" action="atualizaServidor"/>
+                
+                        </p:column>
+                     </p:dataTable>
+    
+                   </p:panel>
+                     <p:button value="Voltar" outcome="#{loginBean.verificaLogin()}"/>
+                </h:form>
+
+            </center>
+        </h:body>
+    </f:view>
+</html>
