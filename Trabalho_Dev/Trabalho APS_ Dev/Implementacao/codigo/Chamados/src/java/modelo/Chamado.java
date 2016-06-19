@@ -5,11 +5,15 @@
  */
 package modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -17,17 +21,21 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "chamado")
-public class Chamado {
+public class Chamado implements Serializable  {
 
     @Id
     @GeneratedValue
     private int id;
     private String nome; 
-    private String setor;
+    @ManyToOne
+    @JoinColumn(name="id_setor")
+    private Setor setor;
     private String localChamado;
     private String descricao;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataAbertura;
     private String email; 
+    private String status;
 
     public String getEmail() {
         return email;
@@ -53,11 +61,11 @@ public class Chamado {
         this.localChamado = localChamado;
     }
 
-    public String getSetor() {
+    public Setor getSetor() {
         return setor;
     }
 
-    public void setSetor(String setor) {
+    public void setSetor(Setor setor) {
         this.setor = setor;
     }
 
@@ -93,4 +101,34 @@ public class Chamado {
         this.descricao = descricao;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+       
+            this.status=status;
+        
+    }
+    public void alteraStatus(String novoStatus){
+  
+            
+        if(novoStatus=="Aberto"&& status=="Em Andamento"){
+            status=novoStatus;
+           
+        }else if(novoStatus=="Fechado"&& status=="Em Andamento"){
+            status=novoStatus;
+          
+        }else if(novoStatus=="Em Andamento"&& status=="Aberto"){
+            status=novoStatus;
+            
+        }   else if(novoStatus=="Fechado" && status=="Aberto"){
+            status=novoStatus;
+           
+        }
+    }
+    
 }
+    
+
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <f:facet name="first">
+                <title>Inclusão de Servidores</title>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <h:form rendered="#{loginBean.verificaSessao()}">
+                <center>
+                    <h:form>
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:panel id="basic" header="Incluir Servidor"  style="margin-bottom:20px">
+
+
+                            <h:panelGrid columns="2">
+                                <p:outputLabel for="nome" value="Nome: "/>
+                                <p:inputText id="nome" label="nome"  value="#{servidorBean.servidor.nome}" required="true" requiredMessage="Informe o nome!!"/> 
+
+                                <p:outputLabel for="console" value="Setores" />
+                                <p:selectOneMenu id="console" value="#{servidorBean.servidor.setor}" converter="setorConverter">
+                                    <f:selectItem itemLabel="Selecione um setor" noSelectionOption="true" />
+                                    <f:selectItems value="#{setorBean.listaSetores}" var ="setor" itemLabel="#{setor.nome}" itemValue="#{setor}" />
+                                </p:selectOneMenu>
+
+                                <p:outputLabel for="email" value="Email: "/>
+                                <p:inputText id="email" label="email"  value="#{servidorBean.servidor.email}" required="true" />
+
+                                <p:outputLabel for="cargo" value="Cargo: "/>
+                                <p:inputText id="cargo" label="cargo"  value="#{servidorBean.servidor.cargo}" required="true" />
+
+
+                                <p:outputLabel for="login" value="Login: "/>
+                                <p:inputText id="login" label="login"  value="#{servidorBean.servidor.login}" required="true" />
+
+                                <p:outputLabel for="senha" value="Senha: "/>
+                                <p:inputText id="senha" label="senha"  value="#{servidorBean.servidor.senha}" required="true"/>
+
+                            </h:panelGrid>
+                        </p:panel>
+                        <p:commandButton ajax="false" value="Salvar" actionListener="#{servidorBean.salvar()}" />
+                        
+                        <p:button value="Voltar" outcome="listaServidor"/>
+                    </h:form>
+
+                </center>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>

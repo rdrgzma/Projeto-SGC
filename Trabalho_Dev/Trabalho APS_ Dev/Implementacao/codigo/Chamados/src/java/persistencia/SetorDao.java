@@ -6,8 +6,10 @@
 package persistencia;
 
 
+import java.util.List;
 import modelo.Setor;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 /**
  *
  * @author Duda
@@ -16,24 +18,39 @@ public class SetorDao {
     private final Session sessao;
     
     public SetorDao() {
-        sessao = HibernateUtil.getSessionFactory().getCurrentSession();
-        sessao.beginTransaction();
+         sessao = HibernateUtil.getSessionFactory().openSession();
+        
     }
     
-    public void salvar(Setor l) {
-        sessao.saveOrUpdate(l);
+    public void salvar(Setor s) {
+        Transaction t = sessao.beginTransaction();
+        sessao.saveOrUpdate(s);
+        t.commit();
+    }
+    
+    public void atualizar(Setor s){
+        sessao.update(s);
     }
     
     public Setor carregar(int id) {
         return (Setor) sessao.load(Setor.class, id);
     }
     
-    public void remover(Setor l) {
-        sessao.delete(l);
+    public void remover(int id) {
+        Transaction t = sessao.beginTransaction();
+        t.begin();
+        
+        sessao.delete(carregar(id));
+        t.commit();
     }
     
+    public List<Setor> listar() {
+        return sessao.createCriteria(Setor.class).list();
+    } 
+    
     public void encerrar() {
-        sessao.getTransaction().commit();
+            sessao.close();
+   
     }
     
     

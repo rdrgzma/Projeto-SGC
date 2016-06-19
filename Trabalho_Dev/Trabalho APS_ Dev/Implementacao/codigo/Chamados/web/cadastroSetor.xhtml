@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <f:facet name="first">
+                <title>Cadastro Setor</title>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <h:form rendered="#{loginBean.verificaSessao()}">
+                <center>
+                    <h:form>
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:panel id="basic" header="Cadastro de Setores"  style="margin-bottom:20px">
+                            <h:panelGrid columns="2">
+
+                                <p:outputLabel for="nome" value="Nome : "/>
+                                <p:inputText id="nome" label="Nome"  value="#{setorBean.setor.nome}" required="true" requiredMessage="Informe o nome do setor!!"/> 
+
+
+                                <p:outputLabel for="email" value="Email: "/>
+                                <p:inputText id="email" label="Email"  value="#{setorBean.setor.email}" required="true" requiredMessage="Informe o email do setor!!" />
+
+                                <p:outputLabel for="localSetor" value="Local : "/>
+                                <p:inputText id="localSetor" label="Local"  value="#{setorBean.setor.localSetor}" required="true" requiredMessage="Informe o local do setor!!"/>
+
+                                <p:outputLabel for="servidor" value="Servidor Responsavel:" />    
+                                <p:selectOneMenu id="servidor" value="#{setorBean.setor.servidorResponsavel}" converter="servidorConverter">
+                                    <f:selectItem itemLabel="Selecione um servidor" noSelectionOption="true" />
+                                    <f:selectItems value="#{servidorBean.listaServidor}" var ="s" itemLabel="#{s.nome}" itemValue="#{s}" />
+                                </p:selectOneMenu>
+                            </h:panelGrid>
+                        </p:panel>
+                        <p:commandButton ajax="false" value="Salvar" actionListener="#{setorBean.salvar()}"  />
+                        <p:button value="Voltar" outcome="listaServidores"/>
+
+                    </h:form>
+
+                </center>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

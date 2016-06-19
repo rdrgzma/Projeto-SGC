@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Serviços</title>
+        <h:outputStylesheet library="css" name="estilo.css" />
+    </h:head>
+    <h:body>
+        <h1>Serviços</h1>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="west" size="relative" header="Ocultar" collapsible="true">
+
+                <p:menu>
+                    <p:submenu label="Chamado">
+                        <p:menuitem value="Chamado" outcome="listaChamados"/>
+                    </p:submenu>
+                    <p:submenu label="Setor">
+                        <p:menuitem value="Setor" outcome="listaSetores" />
+
+                    </p:submenu>
+                    <p:submenu label="Servidor">
+                        <p:menuitem value="Servidor" outcome="listaServidores" />
+
+                    </p:submenu>
+                </p:menu>
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="center">
+
+            </p:layoutUnit>
+
+        </p:layout>
+
+    </h:body>
+</html>
+

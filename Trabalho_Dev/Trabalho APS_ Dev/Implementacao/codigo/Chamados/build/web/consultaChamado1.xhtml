@@ -17,6 +17,7 @@ and open the template in the editor.
             </f:facet>
         </h:head>
         <h:body>
+            <h:form rendered="#{loginBean.verificaSessao()}">
             <center>
                 <h:form>
                     <p:growl id="msgs" showDetail="true" />
@@ -25,7 +26,7 @@ and open the template in the editor.
                         <p:dataTable var="chamado" value="#{chamadoBean.chamado}">
                            
                             <p:column headerText = "Setor Responsável">
-                                <h:outputText value="#{chamadoBean.chamado.setor}"/>
+                                <h:outputText value="#{chamadoBean.chamado.setor.nome}"/>
                             </p:column>
                              <p:column headerText = "Nome">
                                  <h:outputText value="#{chamadoBean.chamado.nome}"/>
@@ -33,22 +34,26 @@ and open the template in the editor.
                              <p:column headerText = "Local">
                                  <h:outputText value="#{chamadoBean.chamado.localChamado}"/>
                             </p:column>
+                            <p:column headerText = "Descrição do chamado">
+                                 <h:outputText value="#{chamadoBean.chamado.descricao}"/>
+                            </p:column>
+                            <p:column headerText = "Status">
+                                <h:outputText value="#{chamadoBean.chamado.status}"/>
+                            </p:column>
                              <p:column headerText = "Data de Abertura">
                                  <h:outputText value="#{chamadoBean.chamado.dataAbertura}"/>
                             </p:column>
-                             <p:column headerText = "Descrição do chamado">
-                                 <h:outputText value="#{chamadoBean.chamado.descricao}"/>
-                            </p:column>
-                            
+                                                      
                          </p:dataTable>
                             
                     </p:panel>
-                    <p:button value="Voltar" outcome="listaChamados"/>
-                    <p:button value="Voltar ao menu principal" outcome="index"/>
-                    <p:commandButton ajax="false" value="Remover" actionListener="#{chamadoBean.remover()}" />
+                    <p:commandButton   ajax="false" value="Voltar" action="listaChamados"  />
+                    
+                    
                 </h:form>
 
             </center>
+                </h:form>
         </h:body>
     </f:view>
 </html>

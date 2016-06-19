@@ -5,12 +5,58 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view>
+        <h:head>
+            <f:facet name="first">
+                <title>Cadastro Setor</title>
+                <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <h:form rendered="#{loginBean.verificaSessao()}">
+                <center>
+                    <h:form>
+                        <p:growl id="msgs" showDetail="true" />
+                        <p:panel id="basic" header="Consulta Servidor" >
+                            <p:dataTable var="setor" value="#{servidorBean.servidor}">
+                                <p:column headerText = "Nome: ">
+                                    <h:outputText value="#{servidorBean.servidor.nome}"/>
+                                </p:column>
+                                <p:column headerText = "Email: ">
+                                    <h:outputText value="#{servidorBean.servidor.email}"/>
+                                </p:column>
+                                <p:column headerText = "Cargo: ">
+                                    <h:outputText value="#{servidorBean.servidor.cargo}"/>
+                                </p:column>
+                                <p:column headerText = "Setor: ">
+                                    <h:outputText value="#{servidorBean.servidor.setor}"/>
+
+                                </p:column>
+                                <p:column headerText = "Login: ">
+                                    <h:outputText value="#{servidorBean.servidor.login}"/>
+                                </p:column>
+
+                                <p:column headerText = "Senha: ">
+                                    <h:outputText value="#{servidorBean.servidor.senha}"/>
+                                </p:column>
+
+
+
+                            </p:dataTable>
+
+                        </p:panel>
+                        <p:button value="Voltar" outcome="listaServidores"/>
+                        <p:button value="Voltar ao menu principal" outcome="#{loginBean.verificaLogin()}"/>
+                        <p:button value="Atualizar Servidor" outcome="atualizaServidor"/>
+                        <p:commandButton ajax="false" value="Remover" actionListener="#{servidorBean.remover()}" />
+                    </h:form>
+
+                </center>
+            </h:form>
+        </h:body>
+    </f:view>
 </html>

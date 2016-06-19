@@ -32,9 +32,7 @@ public class ChamadoDao {
     }
     
     public void remover(Chamado l) {
-        Transaction t = sessao.beginTransaction();
         sessao.delete(l);
-        t.commit();
     }
     
     public List<Chamado> listar() {
@@ -42,6 +40,7 @@ public class ChamadoDao {
     } 
     
     public void encerrar() {
+        sessao.getSessionFactory().close();
        sessao.close(); 
     }
     
