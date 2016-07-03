@@ -19,8 +19,7 @@ import persistencia.ChamadoDao;
  *
  * @author Duda
  */
-@ManagedBean(name="chamadoBean")
-@RequestScoped
+
 public class CadastroChamdoBean {
     
     private Chamado Chamado = new Chamado();

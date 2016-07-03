@@ -8,9 +8,17 @@
         <filter-name>FiltroHibernate</filter-name>
         <filter-class>FiltroHibernate</filter-class>
     </filter>
+    <filter>
+        <filter-name>FiltroLogin</filter-name>
+        <filter-class>filtro.FiltroLogin</filter-class>
+    </filter>
     <filter-mapping>
         <filter-name>FiltroHibernate</filter-name>
         <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>FiltroHibernate</filter-name>
+        <url-pattern>*.xhtml</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

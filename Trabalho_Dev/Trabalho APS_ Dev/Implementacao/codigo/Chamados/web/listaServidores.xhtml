@@ -15,7 +15,7 @@
                 <h:form>
                   <p:growl id="msgs" showDetail="true" />
                     <p:panel id="basic" header="Servidores"  style="margin-bottom:20px">
-                        <p:button value="Incluir servidor" outcome="cadastroServidor"/>
+                        <p:commandButton value="Incluir servidor" action="cadastroServidor"/>
                         <p:dataTable value="#{servidorBean.listaServidor}" var="lis" rows="10" paginator="true">
                          <p:column headerText="ID" sortBy="#{lis.id}" filterBy="#{lis.id}" width="120">
                             #{lis.id}

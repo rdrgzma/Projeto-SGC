@@ -1,10 +1,13 @@
 package beans;
 
 import java.io.Serializable;
+import javax.ejb.SessionContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
 import modelo.Servidor;
 import persistencia.ServidorDao;
 
@@ -16,6 +19,7 @@ public class LoginBean implements Serializable {
     private boolean log;
     private int id;
     private String cargo;
+    
 
     public Servidor getServidor() {
         return servidor;
@@ -38,6 +42,12 @@ public class LoginBean implements Serializable {
         } else {
             cargo = servidor.getCargo();
             log = true;
+          
+           FacesContext ctx = FacesContext.getCurrentInstance();
+	   HttpSession sessao = (HttpSession) ctx.getExternalContext().getSession(
+				false);
+                sessao.setAttribute("usuario",servidor);
+
             if (servidor.getCargo().equalsIgnoreCase("adm")) {
                 return "menu";
             } else {
