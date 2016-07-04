@@ -49,10 +49,18 @@ and open the template in the editor.
                             <h:outputText id="localChamado"  value="#{chamadoBean.chamado.localChamado}" />
 
                             <p:outputLabel for="mask" value="Data de Abertura:" />
-                           <h:outputText  id="mask" value="#{chamadoBean.chamado.dataAbertura}" />
+                           <h:outputText  id="mask" value="#{chamadoBean.chamado.dataAbertura}" >
+                               <f:convertDateTime pattern="dd/MM/yyyy"/>
+                           </h:outputText>
 
                             <p:outputLabel for="txtDesc" value="Descrição do Chamado: "/>
                            <h:outputText id="txtDesc"  value="#{chamadoBean.chamado.descricao}" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="2">
+                            
+                            <p:outputLabel for="descricao" value="Descrição: "/>
+                            <h:inputText id="descricao"  value="#{chamadoBean.descAtendimento}" />
+                            
                         </h:panelGrid>
                     </p:panel>
                     <p:commandButton ajax="false" value="Salvar" actionListener="#{chamadoBean.salvar()}"/>

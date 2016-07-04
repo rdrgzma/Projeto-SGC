@@ -34,14 +34,14 @@
                          </p:column>
                         <p:column width="120">
                             <p:commandButton ajax="false" title="Consultar" value="Consultar" actionListener="#{chamadoBean.carregar(lis.id)}" action="consultaChamado1"/>
-                            <p:commandButton ajax="false" title="Alterar Setor" value="Alterar Setor" actionListener="#{chamadoBean.carregar(lis.id)}" action="modificaSetor"/>
-                            <p:commandButton ajax="false" title="Alterar Status" value="Alterar Status" actionListener="#{chamadoBean.carregar(lis.id)}" action="modificaStatus"/>
+                            <p:commandButton ajax="false" title="Alterar Setor" value="Alterar Setor" rendered= "#{chamadoBean.verificaSetor(lis.setor)}" actionListener="#{chamadoBean.carregar(lis.id)}" action="modificaSetor"/>
+                            <p:commandButton ajax="false" title="Alterar Status" value="Alterar Status"  rendered="#{chamadoBean.servidor.setor.nome eq lis.setor.nome or chamadoBean.servidor.administrador}" actionListener="#{chamadoBean.carregar(lis.id)}" action="modificaStatus"/>
                             
                         </p:column>
                      </p:dataTable>
     
                    </p:panel>
-                     <p:commandButton value="Voltar" ajax="false" action="#{loginBean.verificaLogin}"/>
+                     <p:commandButton value="Voltar" ajax="false" action="#{chamadoBean.voltarPrincipal}"/>
                 </h:form>
 
             </center>

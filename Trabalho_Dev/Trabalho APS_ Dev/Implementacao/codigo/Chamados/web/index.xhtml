@@ -5,16 +5,15 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <h:outputStylesheet library="css" name="estilo.css" />
-        <title>Serviços</title>
+        <title>Chamados</title>
     </h:head>
     <h:body >
-        <p:layout  fullPage="true">
+      
             <p:layoutUnit id="cabeca" position="north" size="110">
-                <h1>Serviços</h1>
-            </p:layoutUnit>
-            <p:layoutUnit position="center" >
+                
+                <center>
                 <p:panel id="painel" header="Login">
-                    <p:messages/>
+                    <p:panelGrid columns="2">
                     <h:form>
                         <h:panelGrid   columns="2" >
                             <p:outputLabel for="txtLogin" value="Login:"/>
@@ -23,13 +22,49 @@
                             <p:password id="txtSenha" value="#{loginBean.servidor.senha}"/>
                         </h:panelGrid>
                         <p:commandButton id="bnt" ajax="false" value="Entrar" action="#{loginBean.login}"/>
-                    </h:form>
-                    <p:button id="botao" value="Abrir Chamado" outcome="cadastroChamado"/>
+                    </h:form> 
+                        
+                    </p:panelGrid> 
                 </p:panel>
-
+                   
+                </center>
             </p:layoutUnit>
+        <p:layoutUnit id="listaChamado" position="center">
+            
+            <center>
+                <h:form>
+                  <p:growl id="msgs" showDetail="true" />
+                    <p:panel id="basic" header="Chamados"  style="margin-bottom:20px">
+                        <p:commandButton ajax="false" title="Novo Chamado"  value="Novo" action="#{chamadoBean.cadastraChamadoForm()}"/>
+                        <p:dataTable value="#{chamadoBean.listaChamados}"  var="lis" rows="10" paginator="true">
+                            <p:column headerText="ID" sortBy="#{lis.id}"  filterBy="#{lis.id}" width="100">
+                            #{lis.id}
+                         </p:column>
+                            <p:column headerText="Nome" sortBy="#{lis.nome}" filterBy="#{lis.nome}" width="141">
+                        #{lis.nome}
+                         </p:column>
+                            <p:column headerText="Descrição" sortBy="#{lis.descricao}" width="161">
+                        #{lis.descricao}
+                         </p:column>
+                            <p:column headerText="Setor" sortBy="#{lis.setor}" filterBy="#{lis.setor.nome}" width="100">
+                        #{lis.setor.nome}
+                         </p:column>
+                            <p:column headerText="Status" sortBy="#{lis.status}" filterBy="#{lis.status}" width="100">
+                        #{lis.status}
+                         </p:column>
+                        <p:column width="120">
+                            <p:commandButton ajax="false" title="Consultar" value="Consultar" actionListener="#{chamadoBean.carregar(lis.id)}" action="consultaChamado1"/>
+                            
+                        </p:column>
+                     </p:dataTable>
+    
+                   </p:panel>
+                     <p:commandButton value="Voltar" ajax="false" action="#{loginBean.verificaLogin}"/>
+                </h:form>
 
-        </p:layout>
+            </center>
+        </p:layoutUnit>
+        
 
     </h:body>
 </html>

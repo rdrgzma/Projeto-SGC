@@ -15,7 +15,7 @@ import org.hibernate.Transaction;
  * @author Duda
  */
 public class SetorDao {
-    private final Session sessao;
+    private Session sessao;
     
     public SetorDao() {
          sessao = HibernateUtil.getSessionFactory().openSession();

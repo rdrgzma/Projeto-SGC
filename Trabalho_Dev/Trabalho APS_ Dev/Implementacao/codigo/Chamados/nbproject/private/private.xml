@@ -3,19 +3,28 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/cadastroChamado.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/index.xhtml</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/persistencia/SetorDao.java</file>
-            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/filtro/FiltroLogin.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/hibernate.cfg.xml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/modificaSetor.xhtml</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/ChamadoBean.java</file>
-            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/persistencia/ServidorDao.java</file>
-            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/cadastroServidor.xhtml</file>
-            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/consultaChamado1.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/persistencia/ChamadoDao.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/persistencia/AtendimentoDao.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/modificaStatus.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/modelo/Atendimento.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/modelo/Chamado.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/LoginBean.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/consultaChamado1.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/AtendimentoBean.java</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/modelo/Servidor.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/listaChamados.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/ServidorBean.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/CadastroChamdoBean.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/listaSetores.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/modelo/Setor.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/src/java/beans/SetorBean.java</file>
             <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/listaServidores.xhtml</file>
+            <file>file:/home/marcio/Área%20de%20Trabalho/SCG/Trabalho_Dev/Trabalho%20APS_%20Dev/Implementacao/codigo/Chamados/web/WEB-INF/faces-config.xml</file>
         </group>
     </open-files>
 </project-private>

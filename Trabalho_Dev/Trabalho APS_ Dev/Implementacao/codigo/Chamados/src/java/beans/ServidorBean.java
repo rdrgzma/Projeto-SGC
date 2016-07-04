@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import modelo.Servidor;
 import modelo.Setor;
 import persistencia.ServidorDao;
@@ -73,7 +74,27 @@ public class ServidorBean implements Serializable {
         enviarMensagem(FacesMessage.SEVERITY_INFO, "Servidor removido com sucesso");
         this.listaServidor = dao.listar();
         this.servidor=null;
-    }   
+    }  
+     public String listaServidorFrom(){
+          FacesContext fc = FacesContext.getCurrentInstance();
+    HttpSession session = (HttpSession)fc.getExternalContext().getSession(false); 
+    Servidor se =(Servidor) session.getAttribute("usuario");
+               
+        if(se!=null){
+          return "listaServidores";
+        }
+        return "index";
+    }
+     public String voltarPrincipal(){
+       FacesContext fc = FacesContext.getCurrentInstance();
+    HttpSession session = (HttpSession)fc.getExternalContext().getSession(false); 
+    Servidor se =(Servidor) session.getAttribute("usuario");
+        if(se.getCargo().equalsIgnoreCase("ADMINISTRADOR")){
+            return "menu";
+        }else{
+            return "menu2";
+        }
+    }
    
     private void enviarMensagem(Severity sev, String msg) {
         FacesContext context = FacesContext.getCurrentInstance();

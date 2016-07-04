@@ -6,12 +6,18 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -36,6 +42,9 @@ public class Chamado implements Serializable  {
     private Date dataAbertura;
     private String email; 
     private String status;
+    
+   /// @OneToMany(mappedBy="chamado")
+   // private List<Atendimento> atendimentos;
 
     public String getEmail() {
         return email;
@@ -110,23 +119,19 @@ public class Chamado implements Serializable  {
             this.status=status;
         
     }
-    public void alteraStatus(String novoStatus){
+    //  public List<Atendimento> getAtendimentos() {
+    //    return atendimentos;
+   // }
+
+   // public void setAtendimentos(ArrayList<Atendimento> atendimentos) {
+   //     this.atendimentos = atendimentos;
+   // }
+   // public void alteraStatus(String novoStatus){
   
-            
-        if(novoStatus=="Aberto"&& status=="Em Andamento"){
-            status=novoStatus;
-           
-        }else if(novoStatus=="Fechado"&& status=="Em Andamento"){
-            status=novoStatus;
-          
-        }else if(novoStatus=="Em Andamento"&& status=="Aberto"){
-            status=novoStatus;
-            
-        }   else if(novoStatus=="Fechado" && status=="Aberto"){
-            status=novoStatus;
-           
-        }
-    }
+      
+  //  }
+
+  
     
 }
     

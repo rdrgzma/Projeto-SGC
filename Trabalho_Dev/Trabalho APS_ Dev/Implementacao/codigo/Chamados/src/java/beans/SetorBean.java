@@ -12,9 +12,10 @@ import javax.annotation.PreDestroy;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+import modelo.Servidor;
 import modelo.Setor;
 import persistencia.SetorDao;
 
@@ -68,6 +69,26 @@ public class SetorBean implements Serializable {
         listaSetores = dao.listar(); 
         enviarMensagem(FacesMessage.SEVERITY_INFO, "Setor removido com sucesso");
 
+    }
+      public String listaSetorFrom(){
+          FacesContext fc = FacesContext.getCurrentInstance();
+    HttpSession session = (HttpSession)fc.getExternalContext().getSession(false); 
+    Servidor servidor =(Servidor) session.getAttribute("usuario");
+               
+        if(servidor!=null){
+          return "listaSetores";
+        }
+        return "index";
+    }
+      public String voltarPrincipal(){
+         FacesContext fc = FacesContext.getCurrentInstance();
+    HttpSession session = (HttpSession)fc.getExternalContext().getSession(false); 
+    Servidor servidor =(Servidor) session.getAttribute("usuario");
+        if(servidor.getCargo().equalsIgnoreCase("ADMINISTRADOR")){
+            return "menu";
+        }else{
+            return "menu2";
+        }
     }
      
     private void enviarMensagem(Severity sev, String msg) {

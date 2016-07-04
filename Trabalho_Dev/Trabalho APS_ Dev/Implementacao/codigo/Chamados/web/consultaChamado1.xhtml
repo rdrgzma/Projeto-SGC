@@ -17,7 +17,7 @@ and open the template in the editor.
             </f:facet>
         </h:head>
         <h:body>
-            <h:form rendered="#{loginBean.verificaSessao()}">
+            <h:form >
             <center>
                 <h:form>
                     <p:growl id="msgs" showDetail="true" />
@@ -41,13 +41,32 @@ and open the template in the editor.
                                 <h:outputText value="#{chamadoBean.chamado.status}"/>
                             </p:column>
                              <p:column headerText = "Data de Abertura">
-                                 <h:outputText value="#{chamadoBean.chamado.dataAbertura}"/>
+                                 <h:outputText value="#{chamadoBean.chamado.dataAbertura}">
+                                          <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                 </h:outputText>
                             </p:column>
                                                       
                          </p:dataTable>
+                        <p:panel id="atendimento" header="Histórico"  style="margin-bottom:20px">
+                        <p:dataTable var="atendimento" value="#{chamadoBean.atendimentos}">
+                           
+                            <p:column headerText = "Data:">
+                                <h:outputText value="#{atendimento.dataAtendimento}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                </h:outputText>
+                            </p:column>
+                             <p:column headerText = "Servidor: ">
+                                 <h:outputText value="#{atendimento.servidor.nome}"/>
+                            </p:column>
+                             <p:column headerText = "Descrição: ">
+                                 <h:outputText value="#{atendimento.descricaoAtendimento}"/>
+                            </p:column>
+                                                                                  
+                         </p:dataTable>
+                        </p:panel>
                             
                     </p:panel>
-                    <p:commandButton   ajax="false" value="Voltar" action="listaChamados"  />
+                    <p:commandButton   ajax="false" value="Voltar" action="#{chamadoBean.listaChamadoFrom()}"  />
                     
                     
                 </h:form>
